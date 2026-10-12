@@ -2,40 +2,6 @@
 
 Домашнее задание №1: консольный учёт парка, SOLID, Spring DI и тесты.
 
-## Сборка и запуск
-
-Требуются **JDK 25**, доступ к Maven Central при первой сборке и терминал UTF-8.
-Gradle 9.2.0 включён в проект через wrapper; отдельно устанавливать Gradle не нужно.
-Spring Context 7.0.9 используется как DI-контейнер. Spring Boot, HTTP и база данных не нужны.
-Исходники компилируются в Java 17 bytecode, но настроенная сборка и её запуск используют JDK 25.
-
-В PowerShell из папки `HW-1`:
-
-
-```powershell
-# Если JAVA_HOME ещё не настроен, укажите каталог своего JDK 25:
-chcp 65001
-$env:JAVA_HOME = 'C:\Users\PC\.jdks\jdk-25.0.4.1+1'
-.\gradlew.bat --console=plain clean check installDist
-.\build\install\vyshkat\bin\vyshkat.bat
-```
-
-Путь JDK выше — пример для компьютера, на котором проверен проект. На другом компьютере замените его.
-Альтернативный запуск: `.\gradlew.bat --console=plain run`.
-На Linux/macOS используйте `sh ./gradlew clean check installDist`, затем
-`./build/install/vyshkat/bin/vyshkat` с установленным JDK 25.
-
-В IntelliJ IDEA откройте **папку HW-1 как отдельный проект**, импортируйте Gradle,
-выберите JDK 25 для Project SDK и Gradle JVM. Запускайте класс
-[`Main`](src/main/java/Main.java).
-Корневые настройки учебного репозитория не изменяются: HW-1 имеет самостоятельный `settings.gradle.kts`.
-
-`check` запускает тесты и проверяет покрытие строк всего production-кода не ниже 60%.
-Отчёт тестов: `build/reports/tests/test/index.html`.
-Покрытие: `build/reports/jacoco/test/html/index.html`.
-
-Результаты актуального запуска тестов и покрытия доступны в отчётах выше.
-
 ## Пользовательский интерфейс и правила
 
 Меню: 1 — добавить транспорт; 2 — добавить вещь; 3 — отчёт;
